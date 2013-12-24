@@ -107,7 +107,7 @@ function parse(conf) { return function parser(socket) {
 }}
 
 var parseRe = /^(<[0-9]+>)([0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z) ([^ ]+) ([^[]+)\[([^\]]+)\]: (.*)$/
-var fmt = '%s1 %s %s %s %s "-" [%s@41058] %s\n'
+var fmt = '%s1 %s %s %s %s "-" [%s@41058] '
 
 
 function line(conf, socket) { return function(l, _, __) {
@@ -126,20 +126,20 @@ function line(conf, socket) { return function(l, _, __) {
 
   var token = conf.token
 
-  var out = util.format(fmt, pri, date, hostname, appname, procid, token, msg)
+  var header = util.format(fmt, pri, date, hostname, appname, procid, token)
 
-  send(conf, socket, out)
+  send(conf, socket, header, date, msg)
 }}
 
-function send(conf, socket, out) {
+function send(conf, socket, header, date, msg) {
   var writer = getWriter(conf)
-  if (!writer.write(out)) {
+  if (!writer.write(header + msg + '\n')) {
     socket.pause()
     writer.once('drain', ondrain(conf, socket))
   } else
     conf.free.push(writer)
   if (conf.echo)
-    process.stdout.write(out)
+    console.log(date + ' ' + msg)
 
   reap(conf)
 }
