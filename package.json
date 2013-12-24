@@ -4,7 +4,7 @@
   "description": "Syslog proxy that receives syslogs from Fastly, and sends them to Logly.",
   "main": "lylog.js",
   "bin": {
-    "lylog": "lylog.js"
+    "lylog": "bin/lylog.js"
   },
   "directories": {
     "test": "test"
