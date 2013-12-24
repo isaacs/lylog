@@ -1,6 +1,6 @@
 {
   "name": "lylog",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Syslog proxy that receives syslogs from Fastly, and sends them to Logly.",
   "main": "lylog.js",
   "bin": {
