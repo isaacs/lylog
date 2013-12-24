@@ -1,7 +1,7 @@
 # lylog
 
 Syslog proxy that receives syslogs from Fastly, and sends them to
-Logly.
+Loggly.
 
 ## USAGE
 
