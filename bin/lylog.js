@@ -77,8 +77,6 @@ function usage(ok) {
   process.exit(ok ? 0 : 1)
 }
 
-console.error(opts)
-
 opts.onerror = function(er) {
   console.error('WRITE ERROR', er.stack)
   this.destroy()
