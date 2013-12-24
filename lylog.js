@@ -176,6 +176,7 @@ function newWriter(conf) {
   if (conf.onerror)
     writer.on('error', conf.onerror)
   writer.once('close', onclose(conf))
+  writer.setKeepAlive(true, 1000)
   conf.writers.push(writer)
   return writer
 }
