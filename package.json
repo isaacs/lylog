@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "cidr_match": "~0.0.7",
-    "dashdash": "~1.4.0"
+    "dashdash": "~1.14.0"
   },
   "devDependencies": {
-    "tap": "^1.2.0"
+    "tap": "^6.2.0"
   },
   "scripts": {
     "test": "tap test/*.js"
