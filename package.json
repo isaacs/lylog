@@ -14,7 +14,7 @@
     "dashdash": "~1.4.0"
   },
   "devDependencies": {
-    "tap": "^1.2.0"
+    "tap": "^7.1.0"
   },
   "scripts": {
     "test": "tap test/*.js"
